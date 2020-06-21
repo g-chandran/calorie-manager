@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid" style="width: 60%; margin: 0 auto; padding-bottom: 15pippx">
+  <div style="width: 90%; margin: 0 auto">
+    <h1>Login or <a href="{% url 'signup' %}">Join now</a></h1>
+    <form method='POST'>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type='submit' class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

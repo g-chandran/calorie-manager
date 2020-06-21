@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid" style="width: 60%; margin: 0 auto; padding-bottom: 15pippx">
+  <div style="width: 90%; margin: 0 auto">
+    <h1>Age: {{ object.age }}</h1>
+    <h1>Gender: {{ object.gender }}</h1>
+    <h1>Height: {{ object.height }}</h1>
+    <h1>Weight: {{ object.weight }}</h1>
+    <h1>Type of work: {{ object.type }}</h1>
+    <a class="btn btn-primary" href="{% url 'profileUpdate' object.id %}">Edit profile</a>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid" style="width: 60%; margin: 0 auto; padding-bottom: 15pippx">
+  {% if user.is_authenticated %}
+  <div style="width: 90%; margin: 0 auto">
+  <form enctype="multipart/form-data" method='POST'>
+  {% csrf_token %}
+    {{form|crispy}}
+  <input type="submit">
+  </form>
+  </div>
+  {% else %}
+  <p class="lead" style="width: 90%; margin: 0 auto"><a href="{% url 'login' %}">Login</a> to continue</p>
+  {% endif %}
+</div>
+<br><br>
+{% if food_item %}
+  <div class="alert alert-warning" role="alert" style="width: 60%; margin: 0 auto">
+    You destroyed {{ calorie_data }} calories by eating {{ food_item.title }}
+  </div>
+{% endif %}
+
+{% endblock content %}
